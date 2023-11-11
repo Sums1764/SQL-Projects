@@ -1,17 +1,3 @@
-select * from Credit_Card_transactions
-where amount>50000 and gender='F';
-
-select * from Credit_Card_transactions
-where amount>100000 and card_type='Silver';
-
-select distinct exp_type from Credit_Card_transactions;
-
-select * from Credit_Card_transactions
-where exp_type='entertainment' and amount>50000;
-
-
-select distinct city from Credit_Card_transactions where city  like 'D%';
-
 
 -- Question 1 -- write a query to print top 5 cities with highest spends and their percentage contribution of total credit card spends 
 
