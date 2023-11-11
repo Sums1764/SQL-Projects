@@ -1,5 +1,5 @@
 # SQL-Projects
-SQL Project on Credit Card Transactions in India,
+SQL Project on Credit Card Transactions in India.
 Data Set Downloaded from Kaggle
 Data Set Link:  https://www.kaggle.com/datasets/thedevastator/analyzing-credit-card-spending-habits-in-india
 This is how the data looks in the table:
