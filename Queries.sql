@@ -90,6 +90,25 @@ group by city
 having (sum(gold_spent)/sum(total_spent))*100>0
 order by gold_per asc;
 
+
+
+-- alternatively we can get the results using the below query:
+With A as (Select City,card_type, Sum(amount) as card_amount
+from Credit_Card_transactions
+group by card_type, city)
+, B as (
+Select *,
+Sum(card_amount) Over(Partition by city) as city_amt
+from A)
+Select Top 1 City, (Card_amount/city_amt) as gold_con
+from B
+where card_type = 'Gold'
+Order by gold_con;
+
+
+
+
+
 -- Question 6
 --write a query to print 3 columns:  city, highest_expense_type , lowest_expense_type (example format : Delhi , bills, Fuel)
 
