@@ -135,6 +135,21 @@ credit_card_transactions
 group by exp_type) A
 order by Fem_Con desc
 
+-- Alternatively:
+With A as (Select  Exp_type, sum(amount) as exp_amount
+from Credit_Card_transactions
+where gender = 'F'
+group by exp_type)
+, B as (
+Select  Exp_type, sum(amount) as totalexp_amount
+from Credit_Card_transactions
+group by exp_type)
+Select A.EXP_Type, A.exp_amount/B.totalexp_amount
+from A
+inner join B
+on A.exp_type = B.exp_type
+
+	
 -- Question 8
 --which card and expense type combination saw highest month over month growth in Jan-2014
 
