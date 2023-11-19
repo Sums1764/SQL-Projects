@@ -94,10 +94,6 @@ from B
 where card_type = 'Gold'
 Order by gold_con;
 
-
-
-
-
 -- Question 6
 --write a query to print 3 columns:  city, highest_expense_type , lowest_expense_type (example format : Delhi , bills, Fuel)
 
