@@ -68,18 +68,7 @@ select * from CTE2 where rnk=1
 
 --Question 5
 --write a query to find city which had lowest percentage spend for gold card type
-	
-with CTE1 as(select city, sum(amount) as amount_spent
-from credit_card_transactions
-where card_type='gold'
-group by city)
 
-,CTE2 as (select min(amount_spent) as min_spent from CTE1)
-select city from CTE1
-inner join CTE2 on amount_spent=min_spent
-
--- alternatively we can solve using
-	
 with CTE1 as (select city, sum(amount) as total_spent, 
 sum(case when card_type='Gold' then amount else 0 end) as gold_spent
 from credit_Card_transactions
