@@ -1,3 +1,9 @@
+Select Top 2 * from Credit_Card_Transactions;
+
+Select * from Credit_Card_Transactions where city = 'Bangalore' and amount > 100000;
+
+Select * from Credit_Card_Transactions where city = 'Hyderabad' and gender = 'F' and exp_type = 'Bills' and Card_Type = 'Gold'
+	
 
 -- Question 1 -- write a query to print top 5 cities with highest spends and their percentage contribution of total credit card spends 
 
@@ -6,15 +12,15 @@ from Credit_Card_Transactions
 group by city)
 , B as(
 select *,
-sum(amount_spent) over() as total_amount_spent
+sum(amount_spent) over() as total_amount_spent	
 from A)
 
 select top 5 City,amount_spent, round((amount_spent/total_amount_spent)*100,2) as percentage_con from B
 order by Amount_Spent desc;
 
 
--- Question 2: Write a Query to Print highest spent month and the card_type expense amount in that month
-
+-- Question 2: Write a Query to Print highest spent month. Print the Card_Wise Amount Spent in that Month?
+.
 With CTE1 as (
 select  DATEPART(year,transaction_date) as Year_TD, DATEPART(Month, transaction_date) as Month_TD , 
 		Sum(amount) as Month_Amt
